@@ -1,4 +1,4 @@
-# Digital Freedome with Raspberry PI
+# Digital Freedom with Raspberry PI
 
 This is a guide on how to obtain digital freedom with the Raspberry PI by
 using inexpensive hardware and free software to take back control of your
