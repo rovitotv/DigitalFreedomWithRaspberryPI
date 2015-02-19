@@ -1,27 +1,30 @@
-Introduction
-============
+# Digital Freedome with Raspberry PI
 
-The digital revolution and especially the development of the personal computer
-was all about enabling users by giving us a computer on our desk.  I have
-found the last few years distribuing as people migrated to online commercial
-driven enterprises to managage email (yahoo mail, gmail, hotmail), our
-files (dropbox, box), and social (facebook, twitter).  Admittledy I have used
-the services above especially gmail but the advent of advertisments following
-me around the web based on what is in my gmail account has become the final
-straw.  Besides I am a Computer Scientist so shouldn't I manage my own
-email, blog, and file syncing service?  As a self proclaimed geek I need to 
-stop being lazy.  While these services mentioned above are convienent each user
-pays a price in privacy and control.  Computer hardware has never been cheaper
-especially with products like the Raspberry PI ($35).  Sure you have to add
-a power supply ($5) and flash card ($25), for a total one time cost of $65.  
-Then each year I recommend a domain name ($15) and a official SSL certificate
-($9.99).  The first year of operation will cost $7.49 a month while additioanl
-years of operation will cost $2.08 a month.  A small price to pay for your
-digital freedom.  In addition reading this guide and learning how email, blog,
-and other services work is eductional and fun.  
+This is a guide on how to obtain digital freedom with the Raspberry PI by
+using inexpensive hardware and free software to take back control of your
+digital life.    
 
-Contribution Policy
-===================
+## Contents
 
-Always looking for contributors to help with this effort, feel free to make
-a pull request or open a issue to see what I think about a contribution.
+- [Introduction](introduction.md)
+- [Setup](setup.md)
+
+
+## Contributions
+
+
+If you have anything to fix or details to add, first [file an
+issue](https://github.com/rovitotv/DigitalFreedomWithRaspberryPI/issues) on 
+GitHub to see if
+it is likely to be accepted, then file a pull request with your change (one PR
+per issue).
+
+This is not intended to be an open wiki; we want to keep it concise and minimal
+but will accept fixes and suitable additions.
+
+See our [contributing policy](contributing.md).
+
+## Licence
+
+Unless otherwise specified, everything in this repository is covered by the
+Creative Commons licence, see [licence](LICENSE)

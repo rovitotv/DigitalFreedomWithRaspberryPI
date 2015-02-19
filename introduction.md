@@ -1,5 +1,4 @@
-Introduction
-============
+# Introduction
 
 The digital revolution and especially the development of the personal computer
 was all about enabling users by giving us a computer on our desk.  I have
@@ -20,8 +19,7 @@ years of operation will cost $2.08 a month.  A small price to pay for your
 digital freedom.  In addition reading this guide and learning how email, blog,
 and other services work is eductional and fun.  
 
-Rules of Engagement
--------------------
+## Rules of Engagement
 
 This guide will refer you to other sources of documentation especially hardware
 and network setup.  As time permits I may add suggestions on hardware and
