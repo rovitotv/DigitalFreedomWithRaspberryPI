@@ -1,3 +1,6 @@
+Introduction
+============
+
 The digital revolution and especially the development of the personal computer
 was all about enabling users by giving us a computer on our desk.  I have
 found the last few years distribuing as people migrated to online commercial
@@ -16,3 +19,9 @@ Then each year I recommend a domain name ($15) and a official SSL certificate
 years of operation will cost $2.08 a month.  A small price to pay for your
 digital freedom.  In addition reading this guide and learning how email, blog,
 and other services work is eductional and fun.  
+
+Contribution Policy
+===================
+
+Always looking for contributors to help with this effort, feel free to make
+a pull request or open a issue to see what I think about a contribution.
