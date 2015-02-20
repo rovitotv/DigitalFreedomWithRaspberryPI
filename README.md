@@ -6,9 +6,9 @@ digital life.
 
 ## Contents
 
-- [ Introduction ](introduction.md)
-- [ Setup ](setup.md)
-- [Web server](web.md)
+- [Introduction](introduction.md)
+- [Setup](setup.md)
+- [Web Server](web.md)
 
 
 ## Contributions
@@ -23,14 +23,14 @@ per issue).
 This is not intended to be an open wiki; we want to keep it concise and minimal
 but will accept fixes and suitable additions.
 
-See our [ contributing policy ](contributing.md).
+See our [contribution policy](contributing.md).
 
 ## Attribution
 
 I cannot thank the Raspberry Pi Foundation enough first for inventing then
-producing the Raspberry PI computer but also offering excellent documentation.
+producing the Raspberry Pi computer but also offering excellent documentation.
 This guide is based on the style and format of the 
-[ Raspberry PI Documentation ](https://github.com/raspberrypi/documentation)
+[ Raspberry Pi Documentation ](https://github.com/raspberrypi/documentation)
 
 ## License
 
@@ -39,7 +39,7 @@ following license:
 
 [![Creative Commons Attribution-ShareAlike 4.0 International](http://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
 
-***Digital Freedom with Raspberry PI*** by 
+***Digital Freedom with Raspberry Pi*** by 
 [Todd V. Rovito](http://www.rovitotv.org) is licensed under a 
 [ Creative Commons Attribution 4.0 International License ](http://creativecommons.org/licenses/by-sa/4.0/).
 
