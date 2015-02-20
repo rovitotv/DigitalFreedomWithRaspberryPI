@@ -21,6 +21,12 @@ such as PHP.  Apache is easy to install by typing in the  following command:
 sudo apt-get install apache2 -y
 ```
 
+```bash
+sudo apt-get update
+sudo apt-get upgrade
+sudo rpi-update
+```
+
 ## Testing the web server
 
 By default, Apache puts a test HTML file in the web folder.  This default web
@@ -41,6 +47,43 @@ the following:
 This means you have Apache working!
 
 ## Install PHP
+
+PHP is a server-side scripting language designed for web development with
+a very large install base.  Most "web apps" are created with PHP.  Latter on
+we will install WordPress which uses PHP.  To allow your Apache server to
+process PHP files, you'll need to isntall PHP5 and PHP5 module for Apache.
+Type the following command to install these:
+
+```bash
+sudo apt-get install php5 libapache2-mod-php5 -y
+```
+
+## Test PHP
+
+To test PHP we will create a dynamic web page then refresh in our browser and
+watch the time change.  First use this command to remove the default web page:
+
+```bash
+sudo rm /var/www/index.html
+```
+
+Then use the nano text editor to create a new index file which will be called
+index.php.
+
+```bash
+sudo nano /var/www/index.php
+```
+
+Simply copy and paste the PHP code '<?php echo date('Y-m-d H:i:s');' into the
+Nano text editor then exit with control-x.  An attempt to exit will force 
+Nano to offer to save the file which you should select 'Y' for yes.  Now 
+browse to the default web page by going to 'http://192.168.1.26' (or whatever your Pi's IP address is) from another computer on the network.  If you reload
+the page you will notice that if PHP is installed correctly the date/time will
+be updated.
+
+
+
+
 
 
 
