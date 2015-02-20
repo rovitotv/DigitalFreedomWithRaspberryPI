@@ -74,10 +74,16 @@ index.php.
 sudo nano /var/www/index.php
 ```
 
-Simply copy and paste the PHP code '<?php echo date('Y-m-d H:i:s');' into the
-Nano text editor then exit with control-x.  An attempt to exit will force 
-Nano to offer to save the file which you should select 'Y' for yes.  Now 
-browse to the default web page by going to 'http://192.168.1.26' (or whatever your Pi's IP address is) from another computer on the network.  If you reload
+Simply copy and paste the following PHP code 
+
+```php
+<?php echo date('Y-m-d H:i:s');
+```
+
+Into the Nano text editor then exit with control-x.  An attempt to exit will
+force  Nano to offer to save the file which you should select 'Y' for yes.  Now
+browse to the default web page by going to 'http://192.168.1.26' (or whatever
+your Pi's IP address is) from another computer on the network.  If you reload
 the page you will notice that if PHP is installed correctly the date/time will
 be updated.
 
