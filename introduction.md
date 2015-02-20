@@ -2,7 +2,7 @@
 
 The digital revolution and especially the development of the personal computer
 was all about enabling users by giving us a computer on our desk.  I have
-found the last few years disturbing as people migrated to online commercial
+found the last few years disturbing as people migrated to on-line commercial
 driven enterprises to manage email (yahoo mail, gmail, hotmail), our
 files (dropbox, box), and social (facebook, twitter).  Admittedly I have used
 the services above especially gmail but the advent of advertisements following

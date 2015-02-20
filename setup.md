@@ -19,7 +19,6 @@ many packages that will make digital freedom easy obtainable.
 
 ## Updating
 
-
 No matter which version of NOOBS that you use your operating system will
 most likely need patching.  Whenever possible you should try and update
 your Raspberry PI's operating system at least monthly.  Computers are all
