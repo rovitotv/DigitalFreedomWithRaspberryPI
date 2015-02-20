@@ -1,6 +1,6 @@
-# Digital Freedom with Raspberry PI
+# Digital Freedom with Raspberry Pi
 
-This is a guide on how to obtain digital freedom with the Raspberry PI by
+This is a guide on how to obtain digital freedom with the Raspberry Pi by
 using inexpensive hardware and free software to take back control of your
 digital life.    
 
@@ -27,7 +27,7 @@ See our [ contributing policy ](contributing.md).
 
 ## Attribution
 
-I cannot thank the Raspberry PI Foundation enough first for inventing then
+I cannot thank the Raspberry Pi Foundation enough first for inventing then
 producing the Raspberry PI computer but also offering excellent documentation.
 This guide is based on the style and format of the 
 [ Raspberry PI Documentation ](https://github.com/raspberrypi/documentation)

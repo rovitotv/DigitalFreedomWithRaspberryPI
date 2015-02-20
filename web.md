@@ -25,7 +25,12 @@ sudo apt-get install apache2 -y
 
 By default, Apache puts a test HTML file in the web folder.  This default web
 page is served when you browse to 'http://192.168.1.26' (or whatever your PI's
-IP address is) from another computer on the network.  Browse to the
+IP address is) from another computer on the network.  To find the PI's IP
+address, type `hostname -I` at the command line. Find out more about your
+PI's IP address see [IP Address](https://github.com/raspberrypi/documentation/bl
+ob/master/troubleshooting/hardware/networking/ip-address.md).
+
+Browse to the
 default web page from another computer on the network and you should see
 the following:
 
