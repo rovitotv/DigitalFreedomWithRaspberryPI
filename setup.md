@@ -26,7 +26,7 @@ about automation so you could setup a cron script and do the update on a
 regular basis.  There is a small chance that updating could break your OS
 so some people update only after backups.  If you keep your Raspberry PI
 behind a firewall with only a select number of ports open your Raspberry
-PI is secure.  Sets to update:
+Pi is secure.  Sets to update:
 
 ```bash
 sudo apt-get update
