@@ -319,6 +319,13 @@ One nice feature of WordPress is it allows you to edit images with a web
 browser but you need to install GD module for php5.  Installing GD module for
 php5 is easy by using the command 'sudo apt-get install php5-gd'.
 
+# Conclusion
+
+Now you have your own website and control the content.  Have fun blogging see
+the WordPress site for more instructions on how to use 
+[wordpress.org](http://codex.wordpress.org/WordPress_Lessons).
+
+
 
 
 
