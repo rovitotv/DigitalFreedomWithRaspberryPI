@@ -26,6 +26,24 @@ Facebook along with a personal blog has the benefit of catching some of socials
 popularity plus it means content will be stored on a Raspberry Pi for safe
 keeping.  
 
+## What you will have at the end of this guide
+
+If you follow this guide carefully you will end up with the following:
+
+1. A WordPress blog/email server that can run 24/7/365 for under $5 of 
+electricity per year.  The operating costs are very low $2.08 a month after
+the first year to pay for the $65 in hardware costs.
+2. Personal domain that supports both email and web for example rovitotv.org.
+3. The ability to connect to the Raspberry Pi from anywhere to post a blog
+entry or read/send email using a secure IMAP connection on your phone, tablet,
+or computer.
+4. Complete control over your personal communication.  Your emails and blog will
+be stored on YOUR Raspberry Pi mini server, and nobody is scanning them to sell
+you advertisements.  
+5. Ability to customize your blog with themes or plugins and ability to control
+your email with custom sorting and marking.  
+
+
 ## Rules of Engagement
 
 This guide will refer you to other sources of documentation especially hardware

@@ -9,6 +9,7 @@ digital life.
 - [Introduction](introduction.md)
 - [Setup](setup.md)
 - [Web Server](web.md)
+- [Email Server](email.md)
 - [Maintenance](maintenance.md)
 
 
