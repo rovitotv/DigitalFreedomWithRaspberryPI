@@ -35,9 +35,9 @@ names.  The setup script for Postfix will do configuration for you and you will
 see a long list of output but at some point you will receive the following 
 warning:
 
-'''bash
+```bash
 postmulti: warning: inet_protocols: disabling IPv6 name/address support: Address family not supported by protocol
-'''
+```
 
 Don't panic this is normal.  IPv6 is a new type of IP address that was created
 to remedy the problem of all the IPv4 addresses being allocated but very few
