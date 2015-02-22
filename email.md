@@ -301,7 +301,91 @@ ports just yet lets setup Spamassassin next.
 Take note to understand in more detail Dovecot setup please
 see [samhobbs.co.uk](https://samhobbs.co.uk/2013/12/raspberry-pi-email-server-part-2-dovecot).
 
-# Spamassassin
+# SpamAssassin
+
+SpamAssassin uses a variety of spam-detection techniques, that includes 
+DNS-based and fuzzy checksum based spam detection, Bayesian filtering,
+external programs, blacklists and online databases.  In this section we will
+integrate SpamAssassin with Postfix to automatically filter all mail coming
+into the Raspberry Pi.  A user can use IMAP to drop messages into the Spam 
+folder and SpamAssassin will learn overtime what a user considers Spam or Ham.
+Ham is the opposite of Spam and is good email that a user wants to see.  It is
+rare but sometimes SpamAssassin will make mistakes so you should from time to
+time check your Spam folder.  
+
+## Install and Configure SpamAssassin
+
+The first step is to obviously install SpamAssassin:
+
+```bash
+sudo apt-get update
+sudo apt-get install spamassassin
+```
+
+To configure SpamAssassin we need to edit the values in the file
+`/etc/spamassasin/local.cf`.  In some cases some of these configuration
+variables might already be set in which case you can leave them as they are,
+or change them as you see fit. Some of the variables just need to be
+uncommented so they will work.
+
+The variable rewrite_header will add the spam score to the subject line of
+the emails that SpamAssassin considers to be spam:
+
+```bash
+rewrite_header Subject [***** SPAM _SCORE_ *****]
+```
+
+Obviously the higher the _SCORE_ the higher probability that SpamAssassin
+believes the email is spam.  SpamAssassin will also flag spam emails with
+"X-Spam-Flag: YES" in the email headers. The flag "X-Spam-Flag" will be
+used to sort emails, the rewritten subject line is to make it easier to
+see the score.
+
+This next setting will tell SpamAssassin to modify headers only, without
+making any changes to the body of the email:
+
+```bash
+report_safe 0
+```
+
+The variable `required_score` determines what the minimum score should be for
+a email to be considered spam, the default is 5 but you might have to adjust
+this score depending on if you get a number of false positives.  
+
+```bash
+required_score 5.0
+```
+The variable `use_bayes` determines if SpamAssassin will use Bayesian filtering
+or not.  Bayesian filtering is the algorithm that SpamAssassin uses to 
+'learn' a user's determination if an email is spam or ham.  
+
+```bash
+use_bayes 1
+```
+
+Turn on `bayes_auto_learn` to enable the Bayesian classifier auto-learning.
+
+```bash
+bayes_auto_learn 1
+```
+
+Save your modifications of the configuration file `/etc/spamassassin/local.cf`
+and edit the configuration file `/etc/default/spamassassin` to set:
+
+```bash
+ENABLED=1
+```
+
+Then start the SpamAssassin daemon:
+
+```bash
+sudo service spamassassin start
+```
+
+## Configure Postfix to use SpamAssassin
+
+
+
 
 # LMTP & Sieve mailbox sorting
 
