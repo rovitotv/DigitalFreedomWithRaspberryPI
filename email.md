@@ -384,7 +384,82 @@ sudo service spamassassin start
 
 ## Configure Postfix to use SpamAssassin
 
+At this point the SpamAssassin daemon is running but none of your emails are
+being run through SpamAssassin because Postfix is not configured to use
+SpamAssassin.  The first step is to edit the line in the Postfix configuration
+file `/etc/postfix/master.cf`:
 
+```bash
+smtp      inet  n       -       -       -       -       smtpd
+        -o content_filter=spamassassin
+```
+
+Next append the configurations below to the same file, which will pipe the
+output back to Postfix using Postfix's Sendmail compatibility interface:
+
+```bash
+spamassassin    unix  -       n       n       -       -       pipe user=debian-spamd argv=/usr/bin/spamc -f -e /usr/sbin/sendmail -oi -f ${sender} ${recipient}
+```
+
+*Note: the above configuration is all on a single line, even if your browser
+has wrapped the line.  Make sure it appears on a single line.*
+
+Next restart Postfix:
+
+```bash
+sudo service postfix restart
+```
+
+## SpamAssassin learning automated with Cron
+
+Cron is a tool that Unix uses to run scripts automatically at a specified date
+and or time.  In this section you will use cron to run the automatically run
+the SpamAssassin learning tool.  Take note that in `/etc/` you will have
+several cron directories like cron.daily, cron.hourly, and cron.monthly.  These
+are system wide directories when a user drops a script into `/etc/cron.daily`
+that script will run each day.  To create a script use the following command:
+
+```bash
+sudo nano /etc/cron.daily/spamassassin-learn
+```
+
+Now copy and paste the script below into the terminal running nano:
+
+```bash
+#!/bin/bash
+ 
+# Script by Sam Hobbs https://samhobbs.co.uk
+ 
+# redirect errors and output to logfile
+exec 2>&1 1>> /var/log/spamassassin.log
+ 
+NOW=$(date +"%Y-%m-%d")
+ 
+# Headers for log
+echo ""
+echo "#================================ $NOW ================================#"
+echo ""
+ 
+# learn HAM
+echo "Learning HAM from Inbox"
+sa-learn --no-sync --ham /home/rovitotv/Maildir/{cur,new}
+ 
+# learn SPAM
+echo "Learning SPAM from Spam folder"
+sa-learn --no-sync --spam /home/rovitotv/Maildir/.Spam/{cur,new}
+ 
+# Synchronize the journal and databases.
+echo "Syncing"
+sa-learn --sync
+```
+
+**IMPORTANT: edit the paths so that they match your username!  Replace
+rovitotv with your username.**
+
+The script above will run each day and learn the ham/spam daily, a log file
+will be created at `/var/log/spamassassin.log`.  Each day make sure you move
+email that you consider spam into your spam folder.  Occasionally look through
+your spam folder and move emails back to inbox that you think are ham.  
 
 
 # LMTP & Sieve mailbox sorting
