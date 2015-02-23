@@ -119,6 +119,7 @@ to external mail servers:
 ```bash
 smtpd_recipient_restrictions =
         permit_sasl_authenticated,
+        permit_mynetworks,
         reject_unauth_destination
 ```
 
@@ -464,8 +465,175 @@ your spam folder and move emails back to inbox that you think are ham.
 
 # LMTP & Sieve mailbox sorting
 
+This is the final section for email setup on the Raspberry Pi, congratulate
+yourself if you have made it this far.  As a part of Dovecot it has a program
+called Local Mail Transfer Protocol (LMTP) which will sort mail based on
+delivery rules from a program called Sieve.  In simple terms LMTP/Sieve will 
+take mail that is marked as spam (with X-Spam-Flag: yes) in the headers and
+send into the spam folder.  A user can create their own rules to maybe sort
+mail from a mailing list and send to a special folder.  LMTP/Sieve will enable
+all sorts of interesting possibilities like auto-replies.  
 
+## Install and Configure Dovecot LMTP
 
+The first step is to install dovecot-lmtpd:
+
+```bash
+sudo apt-get update
+sudo apt-get install dovecot-lmtpd
+```
+
+### /etc/dovecot/dovecot.conf
+
+Next we have to configure dovecot-lmtp.  Modify the configuration file
+`/etc/dovecot/dovecot.conf` by appending this line to enable lmtp:
+
+```bash
+protocols = imap lmtp
+```
+### /etc/dovecot/conf.d/20-lmtp.conf
+
+Add this line to `/etc/dovecot/conf.d/20-lmtp.conf` in order to enable
+address extensions:
+
+```bash
+lmtp_save_to_detail_mailbox = yes
+```
+
+Address extensions are really useful.  If you send an email to 
+you+folder@yourdomain.com it will be automatically placed in the "folder"
+folder.  This is useful when dealing with large companies that send huge 
+amounts of mail.  Here is a example, change your email address for ebay to
+you+ebay@yourdomain.com and create a folder called "ebay".  Now all your
+emails about ebay will go into the ebay folder instead of cluttering your 
+inbox. 
+
+Next change the lmtp protocol block to look like this:
+
+```bash
+protocol lmtp {
+  mail_plugins = $mail_plugins sieve
+  postmaster_address = postmaster@yourdomain.com
+}
+```
+### /etc/dovecot/conf.d/10-master.conf
+
+Next find the `service lmtp {... block and then change the line
+`unix_listener lmtp {...` to look like the block below.  This will allow
+postfix to access Dovecot's LMTP from within its chroot environment:
+
+```bash
+service lmtp {
+  unix_listener /var/spool/postfix/private/dovecot-lmtp {
+    mode = 0666
+  }
+}
+```
+
+### /etc/dovecot/conf.d/10-auth.conf
+
+Dovecot by default will try to look up "you@yourdomain.com" in your user
+database, when it should be looking up just the first part ("you").  The
+configuration setting below tells Dovecot to strip the domain name before
+doing the lookup then it converts the username to all lowercase letters:
+
+```bash
+auth_username_format = %Ln
+```
+
+For reference the `L` is the lowercase part and the `n` drops the domain
+name.
+
+### /etc/dovecot/conf.d/10-director.conf
+
+Not sure if this part is required, but comment out completly the entire block 
+that starts with `protocol lmtp {...`
+
+### /etc/postfix/main.cf
+
+Postfix now needs to be setup to hand control to Dovecot's LMTP for the final
+stage of delivery.  In the configuration file `/etc/postfix/main.cf` comment
+out:
+
+```bash
+mailbox_command=
+```
+
+Next append the line in the block below:
+
+```bash
+mailbox_transport = lmtp:unix:private/dovecot-lmtp
+```
+
+## Sieve
+
+At this point Dovecot's sieve is already installed but we still need to 
+perform a few tasks to get Sieve configured.  First change one parameter
+in `/etc/dovecot/conf.d/90-sieve.conf` by uncommenting the setting in the
+block below:
+
+```bash
+recipient_delimiter = +
+```
+
+Then restart Postfix and Dovecot by executing the following commands:
+
+```bash
+sudo service postfix restart
+sudo service dovecot restart
+```
+The default location for the Sieve script is in the user's home folder and it
+is called ".dovecot.sieve".  Create the script with the command below:
+
+```bash
+sudo nano /home/rovitotv/.dovecot.sieve
+```
+
+Replace my username "rovitotv" with your username, then add the following
+snippet to move Spam labeled messages and mark them as read.
+
+```bash
+require ["fileinto","imap4flags"];
+if header :contains "X-Spam-Flag" "YES" {
+        addflag "\\Seen";
+        fileinto "Spam";
+        stop;
+}
+```
+
+Now change the ownership of the .dovecot.sieve file by using the command:
+
+```bash
+sudo chown rovitotv:rovitotv /home/rovitotv/.dovecot.sieve
+```
+
+Again replace my username "rovitotv" with your username.  The Sieve rule above
+is easily explained that when Spamassassin marks emails as Spam it adds
+`X-Spam-Flag: YES` to the headers, then the rule above checks the headers and
+sends mail to the spam folder if that flag exists.  Sieve marks the email as
+"seen" as it transfers it to the spam folder.
+
+# Relay Hosts
+
+If you have difficulty sending email out it might be because some email servers
+could consider any outgoing mail spam since it is coming from a range of IP
+addresses that are dynamic.  A spam checking service known as Spamhaus maintains
+a list of dynamic IP addresses and reports to several large email providers when
+somebody attempts to directly send a email from one of these dynamic ip 
+addresses.  The solution is to use what is called a "relay host" via Postfix to
+relay mail from your SMTP server to your ISP's SMTP server. Contact your ISP
+to find out the host name of their SMTP server or send a email and look at the
+email's headers to watch it go from SMTP server to SMTP server.  My ISP is
+Time Warner Cable so I have my relay host configuration set to 
+`relayhost = [mail.twc.com]:587` in the file `/etc/postfix/main.cf`. 
+
+# Conclusion
+
+The email configuration can be difficult to say the least, it can take a lot of
+time to get the system to work right.  But it does work and work well.  My 
+recommendation is to take it slow and check each configuration step along the
+way.  If you have difficulty please see [Sam Hobbs Raspberry Pi Email Server Setup](https://samhobbs.co.uk/raspberry-pi-email-server) as Sam has included a number 
+of test steps that this guide has skipped over.  
 
 # References
 
