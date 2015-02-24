@@ -454,8 +454,16 @@ echo "Syncing"
 sa-learn --sync
 ```
 
-**IMPORTANT: edit the paths so that they match your username!  Replace
-rovitotv with your username.**
+**IMPORTANT: edit the paths so that they match your user name!  Replace
+rovitotv with your user name.**
+
+Don't forget to make the script executable by issuing the command:
+
+```bash
+sudo chmod a+x /etc/cron.daily/spamassassin-learn
+```
+
+If the script is not executable it will not run.  
 
 The script above will run each day and learn the ham/spam daily, a log file
 will be created at `/var/log/spamassassin.log`.  Each day make sure you move
