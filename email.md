@@ -8,6 +8,9 @@ using Postfix, Dovecot, Spamassassin, and Sieve.  Some people like web mail
 and might want to look into Squirrelmail, if time permits I might add a 
 Squirrelmail section to this guide.  
 
+***Please make sure your host name and domain name are defined see the setup 
+section before you start***
+
 # Postfix
 
 Postfix is a Mail Transfer Agent (MTA) which is the program that lets you
