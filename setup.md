@@ -2,11 +2,16 @@
 
 ## Hardware
 
-I highly recommend the Raspberry PI 2 because it is the same price as the
+I highly recommend the Raspberry Pi 2 because it is the same price as the
 Raspberry PI model B but has four cores and 1 GB of RAM.  Same price but six
 times the performance with double the RAM not many down sides to the Raspberry
 PI 2.  Yes a Raspberry PI model B will work with this book but it will be slow.
-As far as flash cards I use a class 10 that is 16 GB of size.
+As far as flash cards I use a class 10 that is 16 GB of size.  If you plan on 
+using Raspberry Pi 1 model B then you could purchase two of them
+and run one as a web server and one as an email server to divide the load
+between the two Raspberry Pi systems.  Experimentation is required to see what
+fits your needs best, I currently run both my email server and web server on
+a single Raspberry Pi 2 and it seems to handle the load.
 
 ## Operating System
 
@@ -16,6 +21,13 @@ many packages that will make digital freedom easy obtainable.
 
 ## NOOBS
 
+NOOBS is "New Out Of the Box Software and is an easy operating system install
+manager for the Raspberry Pi.  Basically you download to your Mac, Windows, or
+Linux computer then unzip then drag to your flash card (inside of the root
+directory of the flash card).  Then you put the flash card into your
+Raspberry Pi and boot.  On boot up a user is given a choice of operating
+systems to install but for this guide you want Raspbian.  NOOBS does make it
+easy to install and experiment with other operating system.  
 
 ## Updating
 
