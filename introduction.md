@@ -6,7 +6,7 @@ found the last few years disturbing as people migrated to on-line commercial
 driven enterprises to manage email (yahoo mail, gmail, hotmail), our
 files (dropbox, box), and social (Facebook, Twitter).  Admittedly I have used
 the services above especially gmail but the advent of advertisements following
-me around the web based on what is in my gmail account has become the final
+me around the web based on the email in my gmail account has become the final
 straw.  Besides I am a Computer Scientist so shouldn't I manage my own
 email, blog, and file syncing service?  As a self proclaimed geek I need to 
 stop being lazy.  While these services mentioned above are convenient each user
@@ -25,6 +25,11 @@ popularity of these services and mix with her own tools.  A mix of Twitter and
 Facebook along with a personal blog has the benefit of catching some of socials
 popularity plus it means content will be stored on a Raspberry Pi for safe
 keeping.  
+
+This guide will step you through the process of setting up a personal blog
+and email server.  I also provide a number of Python scripts for testing and
+automatic install of a blog and email server if you don't want to go through
+the configuration.
 
 ## What you will have at the end of this guide
 
