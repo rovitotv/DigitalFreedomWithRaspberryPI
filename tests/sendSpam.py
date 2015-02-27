@@ -2,6 +2,10 @@
 # this test sends a SpamTest email message that will definitely be marked
 # as spam.  There is a neat trigger called GTUBE (generic trigger for
 # unsolicited bulk Email)
+#
+# WARNING: Be sure to set the you adress and the ip address to your inside
+# Raspberry Pi.  In addition you have to add your Raspberry Pi Address to
+# the variable for inside networks TODO check this variable name.
 import smtplib
 
 from email.mime.text import MIMEText

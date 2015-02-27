@@ -20,6 +20,7 @@ file on the Raspberry Pi with the following command:
 ```bash
 mysqldump --add-drop-table -h localhost -u root -p wordpress | bzip2 -c > 20150221WordPress.bak.sql.bz2
 ```
+
 The command above will perform a "dump" of the "wordpress" database then 
 compress that information with bzip2 and save to a file name of 
 20150221WordPress.bak.sql.bz2.  I like to use the year-month-day in my backup

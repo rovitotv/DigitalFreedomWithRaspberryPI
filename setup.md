@@ -13,11 +13,17 @@ between the two Raspberry Pi systems.  Experimentation is required to see what
 fits your needs best, I currently run both my email server and web server on
 a single Raspberry Pi 2 and it seems to handle the load.
 
+## Raspberry Pi Setup
+
+For install setup the Raspberry Pi with a keyboard, video device, and
+Ethernet cable.  After install of the operating system the video device can
+be removed.  
+
 ## Operating System
 
 This book uses Raspbian operating system which is the "official" operating 
 system for the Raspberry PI.  It is based on Debian Linux "Wheezy" and includes
-many packages that will make digital freedom easy obtainable.  
+many packages that will make digital freedom easily obtainable. 
 
 ## NOOBS
 
@@ -37,7 +43,11 @@ After NOOBS boots up select Raspbian then the system will boot.  At this point
 a user has a few choices and will come to the Raspbian configuration screen
 with a blue background. rasp-config.  Select "Configure the keyboard layout"
 and choose generic 101 key PC.  Then select other select english/US.  Use the
-default keyboard layout.  
+default keyboard layout.  TODO: Need to work on this section.  Most likely have
+to perform an install again and take pictures along the way.  Install with no
+x-server or just boot to console.  We don't need a x-server because our 
+Raspberry Pi will be in the corner staying busy processing email and hosting
+our personal blog.  
 
 ## Updating
 
