@@ -12,9 +12,7 @@ digital life.
 - [Email Server](email.md)
 - [Maintenance](maintenance.md)
 
-
 ## Contributions
-
 
 If you have anything to fix or details to add, first [file an
 issue](https://github.com/rovitotv/DigitalFreedomWithRaspberryPI/issues) on 
