@@ -638,6 +638,22 @@ email's headers to watch it go from SMTP server to SMTP server.  My ISP is
 Time Warner Cable so I have my relay host configuration set to 
 `relayhost = [mail.twc.com]:587` in the file `/etc/postfix/main.cf`. 
 
+# Testing
+
+To test the email setup consider using the Python script `sendSpam.py` which
+is included with this guide.  The variable `you` must be changed then run this
+script with the command:
+
+```bash
+python sendSpam.py
+```
+
+This script will generate a email then attempt to send with the SMTP server
+of `192.168.1.26`, take note you should change the ip address to that of your
+Raspberry Pi.  The email generated will automatically be generated as spam
+and SpamAssassin should file in your spam folder.  Check the email log 
+`/var/log/mail.log` after the script runs.
+
 # Conclusion
 
 The email configuration can be difficult to say the least, it can take a lot of
