@@ -55,7 +55,7 @@ sudo reboot
 ```
 
 Once you have your Raspberry Pi system up and running you should consider
-subscribing to the (debian-security-announce emai list)[https://lists.debian.org/debian-security-announce/].  This is a low volume email list that will show securtiy
+subscribing to the [debian-security-announce emai list](https://lists.debian.org/debian-security-announce/).  This is a low volume email list that will show securtiy
 ammouncements for Debian which is the basis for Raspbian.  Most security 
 problems can be traced to unpatched computers so please update and upgrade 
 often to keep your Raspberry Pi running in good shape.  Performance improvements
