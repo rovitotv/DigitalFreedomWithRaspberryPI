@@ -64,6 +64,7 @@ Pi is secure.  Sets to update:
 sudo apt-get update
 sudo apt-get upgrade
 sudo rpi-update
+sudo reboot
 ```
 
 # Host and Domain Names

@@ -41,7 +41,24 @@ Same idea with the backup file name by using the year-month-day the backup
 files will automatically sort in almost any directory listing.  Now use scp
 to copy this zip file to a different computer for safe keeping.
 
-## Rasbian updates
+## Raspbian updates
 
 Operating systems are complex pieces of software therefore they will need to
-be updated and patched on a frequent basis.    
+be updated and patched on a frequent basis.  The Raspbian commands to perform
+updates are:
+
+```bash
+sudo apt-get update
+sudo apt-get upgrade
+sudo rpi-update
+sudo reboot
+```
+
+Once you have your Raspberry Pi system up and running you should consider
+subscribing to the (debian-security-announce emai list)[https://lists.debian.org/debian-security-announce/].  This is a low volume email list that will show securtiy
+ammouncements for Debian which is the basis for Raspbian.  Most security 
+problems can be traced to unpatched computers so please update and upgrade 
+often to keep your Raspberry Pi running in good shape.  Performance improvements
+are being commited to Raspbian all the time and one of the best ways to get
+these performance updates is by the commands listed above.  
+

@@ -1,8 +1,9 @@
 # Digital Freedom with Raspberry Pi
 
-This is a guide on how to obtain digital freedom with the Raspberry Pi by
-using inexpensive hardware and free software to take back control of your
-digital life.    
+This is a guide on how to obtain digital freedom with the Raspberry Pi by using
+inexpensive hardware and free software to take back control of your digital
+life.  Learn how to install and maintain a web server and email server on a
+Raspberry Pi.
 
 ## Contents
 
