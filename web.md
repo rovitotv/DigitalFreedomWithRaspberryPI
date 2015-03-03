@@ -21,12 +21,6 @@ such as PHP.  Apache is easy to install by typing in the  following command:
 sudo apt-get install apache2 -y
 ```
 
-```bash
-sudo apt-get update
-sudo apt-get upgrade
-sudo rpi-update
-```
-
 ## Testing the web server
 
 By default, Apache puts a test HTML file in the web folder.  This default web
