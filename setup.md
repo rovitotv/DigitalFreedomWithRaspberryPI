@@ -19,7 +19,7 @@ For install setup the Raspberry Pi with a keyboard, video device, and
 Ethernet cable.  After install of the operating system the video device can
 be removed.  
 
-## Operating System
+## The Raspbian Operating System
 
 This book uses Raspbian operating system which is the "official" operating 
 system for the Raspberry PI.  It is based on Debian Linux "Wheezy" and includes
@@ -29,7 +29,11 @@ distribution.  Debian (and by inheritance Raspbian) provide a large number of
 pre-compiled packages which are called `.deb` files.  The creators of Debian
 created a set of tools called `apt-get` which let you easily download and
 automatically install these packages on your system making software management
-easy.  
+easy.  In most of this guide packages will be installed this makes sure the
+compilation of complicated code bases is done correctly and optimized for the
+Raspberry Pi.  One issue with compiling code directly on the Raspberry Pi is 
+the amount of time it can consume since the Raspberry Pi doesn't have the 
+fastest processor.  
 
 ## NOOBS
 
