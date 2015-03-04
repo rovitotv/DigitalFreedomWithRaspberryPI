@@ -26,10 +26,10 @@ Facebook along with a personal blog has the benefit of catching some of socials
 popularity plus it means content will be stored on a Raspberry Pi for safe
 keeping.  
 
-This guide will step you through the process of setting up a personal blog
-and email server.  I also provide a number of Python scripts for testing and
-automatic install of a blog and email server if you don't want to go through
-the configuration.
+This guide will step you through the process of setting up a personal blog and
+email server.  It will also provide a number of Python scripts for testing and
+automatic install of a blog and email server if you don't want to go through the
+configuration.
 
 ## What you will have at the end of this guide
 

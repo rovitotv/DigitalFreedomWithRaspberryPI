@@ -23,7 +23,13 @@ be removed.
 
 This book uses Raspbian operating system which is the "official" operating 
 system for the Raspberry PI.  It is based on Debian Linux "Wheezy" and includes
-many packages that will make digital freedom easily obtainable. 
+many packages that will make digital freedom easily obtainable. Raspbian uses
+Debian because it offers a strong foundation on which to build a Linux
+distribution.  Debian (and by inheritance Raspbian) provide a large number of
+pre-compiled packages which are called `.deb` files.  The creators of Debian
+created a set of tools called `apt-get` which let you easily download and
+automatically install these packages on your system making software management
+easy.  
 
 ## NOOBS
 
