@@ -55,6 +55,12 @@ def testPHP(data):
 
 	print("PHP installed and tested")
 
+def installMySQL():
+	print("Installing MySQL")
+	com = "export DEBIAN_FRONTEND=noninteractive && apt-get install mysql-server php5-mysql -y"
+	output = sp.check_output(com, shell=True)
+	print("%s" % output)
+
 
 if __name__ == "__main__":
 	data = {}
@@ -63,4 +69,5 @@ if __name__ == "__main__":
 	testApache(data)
 	installPHP()
 	testPHP(data)
+	installMySQL()
 	print("webserver automatic install complete")
