@@ -12,10 +12,13 @@ def getHostIPAddress(data):
 	data['ipAddressString'] = output
 	
 def installApache():
+	print("Installing apache2")
 	output = sp.check_output("apt-get install apache2 -y", shell=True)
 	print("%s" % output)
 
 def testApache(data):
+	output = sp.check_output("service apache2 start", shell=True)
+	print("%s" % output)
 	conn = httplib.HTTPConnection(data['ipAddressString'])
 	conn.request("GET", "/index.html")
 	r1 = conn.getresponse()
@@ -27,8 +30,11 @@ def testApache(data):
 	if dataLines[0] != "<html><body><h1>It works!</h1>":
 		print("index.html page does not start correctly\n")
 		sys.exit(5)
+	else:
+		print("Apache2 installed and tested")
 
 def installPHP():
+	print("Installing php")
 	output = sp.check_output("apt-get install php5 libapache2-mod-php5 -y", shell=True)
 	print("%s" % output)
 
@@ -42,12 +48,14 @@ def testPHP(data):
 	conn.request("GET", "/index.php")
 	r1 = conn.getresponse()
 	if r1.reason != "OK":
-		print("apache2 failed to produce OK response when reading index.html\n")
+		print("apache2 failed to produce OK response when reading index.php\n")
 		sys.exit(5)
 	readData = r1.read()
 	print readData
 	#dataLines = data.split("\n")
 	#if dataLines[0] != "<html><body><h1>It works!</h1>":
+
+	print("PHP installed and tested")
 
 
 if __name__ == "__main__":
@@ -57,3 +65,4 @@ if __name__ == "__main__":
 	testApache(data)
 	installPHP()
 	testPHP()
+	print("webserver automatic install complete")
