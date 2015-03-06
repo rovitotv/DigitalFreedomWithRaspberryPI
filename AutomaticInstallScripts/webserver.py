@@ -39,7 +39,7 @@ def installPHP():
 	print("%s" % output)
 
 def testPHP(data):
-	output = sp.check_output("rm /var/www/index.html", shell=True)
+	output = sp.check_output("mv /var/www/index.html /var/www/index.old", shell=True)
 	print("%s" % output)
 	output = sp.check_output("echo \"<?php echo date('Y-m-d H:i:s');\" > /var/www/index.php",
 		shell=True)
@@ -52,8 +52,6 @@ def testPHP(data):
 		sys.exit(5)
 	readData = r1.read()
 	print readData
-	#dataLines = data.split("\n")
-	#if dataLines[0] != "<html><body><h1>It works!</h1>":
 
 	print("PHP installed and tested")
 
@@ -64,5 +62,5 @@ if __name__ == "__main__":
 	installApache()
 	testApache(data)
 	installPHP()
-	testPHP()
+	testPHP(data)
 	print("webserver automatic install complete")
