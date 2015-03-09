@@ -234,9 +234,10 @@ terminal type the command `hostname -I`.
 Navigate to `http://YOUR-IP-ADDRESS` e.g. `http://192.168.1.5` in your web
 browser.
 
-You should see a WordPress Error page; this is good! Click the big button marked
-`Create a Configuration File` followed by the `Let's go!` button on the next
-page.
+You should see a WordPress welcome page; this is good! Click the big button marked
+`Let's go!` button on the welcome page.
+
+![wp-welcome file](images/wp-welcome.png)
 
 Now fill out the basic site information as follows:
 
