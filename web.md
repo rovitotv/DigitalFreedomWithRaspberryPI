@@ -267,27 +267,16 @@ presented with the site configuration screen:
 The configuration screen will ask for a title for your Word Press site then
 a Word Press username and password.  For security purposes use a strong
 password to prevent intruders into your blog.  Click on the button labeled
-`Install WordPress` to finish the installation.  
-
-If everything installs correctly you will be presented with a reminder screen:
+`Install WordPress`, if everything installs correctly you will be presented 
+with a reminder screen:
 
 ![wp-success file](images/wp-success.png)
 
+Log in using the account you just created. Now you're logged in and have your
+site set up, you can see the website by visiting your IP address in the browser
+on the Pi or another computer on the network. To log in again (or on another
+computer), go to `http://YOUR-IP-ADDRESS /wp-admin`.
 
-#### Welcome screen
-
-Now you're getting close.
-
-![Wordpress welcome screen](images/wp-info.png)
-
-Fill out the information: give your site a title, create a username and
-password, put in your email address and untick the search engines box. Hit the
-`Install WordPress` button, then log in using the account you just created.
-
-Now you're logged in and have your site set up, you can see the website by
-visiting your IP address in the browser on the Pi or another computer on the
-network. To log in again (or on another computer), go to `http://YOUR-IP-ADDRESS
-/wp-admin`.
 
 #### Setup Friendly Links
 

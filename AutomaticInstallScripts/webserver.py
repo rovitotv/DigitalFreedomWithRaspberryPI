@@ -165,7 +165,8 @@ def modifyApacheDefaltConfigurationFile(data):
 	splitLines[10] = "                AllowOverride All"
 	f.close()
 	f = open("/etc/apache2/sites-available/default", "w")
-	f.write(splitLines)
+	for i in range(0, len(splitLines)):
+		f.write(splitLines[i] + '\n')
 	f.close()
 
 
