@@ -92,9 +92,9 @@ PHP-MySQL packages by entering the following command into the terminal:
 sudo apt-get install mysql-server php5-mysql -y
 ```
 
-When installing MySQL you will be asked for a root password. You'll need to 
-remember this to allow your website to access the database.  MySQL is a large
-install so be patient as the database system is installed.
+When installing MySQL you will be asked for a root password. You'll need to
+remember the password to allow your website to access the database.  MySQL is a
+large install so be patient as the database system is installed.
 
 ## Test MySQL
 

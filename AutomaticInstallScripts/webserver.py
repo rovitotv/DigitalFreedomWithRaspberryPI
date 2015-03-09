@@ -97,6 +97,20 @@ def installMySQL(data):
 	output = sp.check_output(com, shell=True)
 	print("%s" % output)
 
+def installWordPress(data):
+	print("Installing WordPress")
+	com = "cd /var/www && chown www-data: . && rm -f index.php && "
+	com += "wget http://wordpress.org/latest.tar.gz && "
+	com += "tar xzf latest.tar.gz && "
+	com += "mv wordpress/* . && "
+	com += "rm -rf wordpress latest.tar.gz"
+	output = sp.check_output(com, shell=True)
+	print("%s" % output)
+	print("createing WordPress database")
+	com = ('mysql -uroot -p%s -e "create databse wordpress;"' 
+		% data['passwordMySQL'])
+	output = sp.check_output(com, shell=True)
+	print("%s" % output)
 
 if __name__ == "__main__":
 	parser = argparse.ArgumentParser()
@@ -112,4 +126,5 @@ if __name__ == "__main__":
 	installPHP()
 	testPHP(data)
 	installMySQL(data)
+	installWordPress(data)
 	print("webserver automatic install complete")
