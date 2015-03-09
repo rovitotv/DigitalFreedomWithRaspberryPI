@@ -34,6 +34,7 @@
 import subprocess as sp
 import httplib
 import sys
+import argparse
 
 def getHostIPAddress(data):
 	output = sp.check_output("hostname -I", shell=True)
@@ -64,11 +65,13 @@ def testApache(data):
 
 def installPHP():
 	print("Installing php")
-	output = sp.check_output("apt-get install php5 libapache2-mod-php5 -y", shell=True)
+	output = sp.check_output("apt-get install php5 libapache2-mod-php5 -y", 
+		shell=True)
 	print("%s" % output)
 
 def testPHP(data):
-	output = sp.check_output("mv /var/www/index.html /var/www/index.old", shell=True)
+	output = sp.check_output("mv /var/www/index.html /var/www/index.old", 
+		shell=True)
 	print("%s" % output)
 	output = sp.check_output("echo \"<?php echo date('Y-m-d H:i:s');\" > /var/www/index.php",
 		shell=True)
@@ -84,19 +87,29 @@ def testPHP(data):
 
 	print("PHP installed and tested")
 
-def installMySQL():
+def installMySQL(data):
 	print("Installing MySQL")
 	com = "export DEBIAN_FRONTEND=noninteractive && apt-get install mysql-server php5-mysql -y"
+	output = sp.check_output(com, shell=True)
+	print("%s" % output)
+	# now setup the password
+	com = "mysqladmin -u root password %s" % (data['passwordMySQL'])
 	output = sp.check_output(com, shell=True)
 	print("%s" % output)
 
 
 if __name__ == "__main__":
+	parser = argparse.ArgumentParser()
+	parser.add_argument("-p", "--passwordMySQL", help="MySQL password",
+		action="store", required=True)
+	args = parser.parse_args()
 	data = {}
+	data['args'] = args
+	data['passwordMySQL'] = args.passwordMySQL
 	getHostIPAddress(data)
 	installApache()
 	testApache(data)
 	installPHP()
 	testPHP(data)
-	installMySQL()
+	installMySQL(data)
 	print("webserver automatic install complete")
