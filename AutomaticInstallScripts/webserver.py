@@ -107,7 +107,7 @@ def installWordPress(data):
 	output = sp.check_output(com, shell=True)
 	print("%s" % output)
 	print("createing WordPress database")
-	com = ('mysql -uroot -p%s -e "create databse wordpress;"' 
+	com = ('mysql -uroot -p%s -e "create database wordpress;"' 
 		% data['passwordMySQL'])
 	output = sp.check_output(com, shell=True)
 	print("%s" % output)
