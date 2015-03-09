@@ -11,7 +11,10 @@ using Raspberry Pi 1 model B then you could purchase two of them
 and run one as a web server and one as an email server to divide the load
 between the two Raspberry Pi systems.  Experimentation is required to see what
 fits your needs best, I currently run both my email server and web server on
-a single Raspberry Pi 2 and it seems to handle the load.
+a single Raspberry Pi 2 and it seems to handle the load.  In addition to the
+Raspberry Pi 2 I have a Netgear Wireless-G Router model WGR614.  The router
+lets me open/close internet ports and acts as a firewall for my network.  Most
+people already own a device similar to this
 
 ## Raspberry Pi Setup
 
