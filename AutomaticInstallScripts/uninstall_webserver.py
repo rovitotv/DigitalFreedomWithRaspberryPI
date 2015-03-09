@@ -38,6 +38,8 @@ def putOldIndexFilesBack():
 	print("%s" % output)
 	output = sp.check_output("mv /var/www/index.old /var/www/index.html", shell=True)
 	print("%s" % output)
+	output = sp.check_output("rm /var/www/.htaccess", shell=True)
+	print("%s" % output)
 
 def uninstallPackages():
 	output = sp.check_output("sudo apt-get remove mysql-server php5-mysql -y",

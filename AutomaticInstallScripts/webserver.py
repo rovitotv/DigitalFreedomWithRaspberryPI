@@ -112,6 +112,45 @@ def installWordPress(data):
 	output = sp.check_output(com, shell=True)
 	print("%s" % output)
 
+def waitForWordPressInstallToComplete(data):
+	urlOfRaspberryPi = "http://" + data['ipAddressString']
+	message = "Now you must use a web browser to configure WordPress.  Using \n"
+	message += "a web browser on the same network as your Raspberry Pi, go \n"
+	message += "to the followig url: %s \n"
+	message += "Now follow the instructions in the guide filling out the \n"
+	message += "correct database information.  \n"
+	print(message)
+
+	while 1 == 1:
+		wordPressComplete = raw_input('Is the WordPress configuration completed? (y/n): ')
+		if wordPressComplete == 'y' or wordPressComplete == 'Y':
+			break
+
+	message = "It's recommended that you change your permalink settings to \n"
+	message += "make your URLs more friendly. To do this, log in to WordPress \n"
+	message += "and go to the dashboard. Go to Settings then Permalinks. \n"
+	message += "Select the Post name option and click Save Changes. After \n"
+	message += "saving, you will be prompted to update your .htaccess file \n"
+	message += "which this script will do automatcially as soon as you press \n"
+	message += "yes."
+
+	while 1 == 1:
+		wordPressComplete = raw_input('Are the permalink settings set? (y/n): ')
+		if wordPressComplete == 'y' or wordPressComplete == 'Y':
+			break
+
+def installHtAccessFile(data):
+	f = open('/var/www/.htaccess', 'w')
+	f.write("<IfModule mod_rewrite.c>\n")
+	f.write("RewriteEngine On\n")
+	f.write("RewriteBase /\n")
+	f.write("RewriteRule ^index/\.php$ - [L]\n")
+	f.write("RewriteCond %{REQUEST_FILENAME} !-f\n")
+	f.write("RewriteCond %{REQUEST_FILENAME} !-d\n")
+	f.write("RewriteRule . /index.php [L]\n")
+	f.write("</IfModule>\n")
+	f.close()
+
 if __name__ == "__main__":
 	parser = argparse.ArgumentParser()
 	parser.add_argument("-p", "--passwordMySQL", help="MySQL password",
@@ -127,4 +166,6 @@ if __name__ == "__main__":
 	testPHP(data)
 	installMySQL(data)
 	installWordPress(data)
+	waitForWordPressInstallToComplete(data)
+	installHtAccessFile(data)
 	print("webserver automatic install complete")
