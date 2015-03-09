@@ -7,7 +7,7 @@ main digital freedom offered here is that you can post a blog post and not
 have your readers have to suffer through advertisements.  Not only will your
 blog be advertisement free but you will have massive amounts of storage space
 and no file limits for media files.  The only file size limitation you will
-have is based on how much storage space you can install on your Raspberry PI.
+have is based on how much storage space you can install on your Raspberry Pi.
 
 ## Apache Web Server
 
