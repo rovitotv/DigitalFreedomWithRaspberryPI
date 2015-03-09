@@ -249,16 +249,30 @@ Database Host:      localhost
 Table Prefix:       wp_
 ```
 
-Upon successful database connection, you will be given the contents of your `wp-
-config.php` file:
+The database configuration screen looks like the following:
 
 ![wp-config file](images/wp-config.png)
 
-Copy this text, return to the terminal on the Pi and edit the file with `nano
-wp-config.php`. Paste the text into this file, and save and exit with `Ctrl +
-X`, then `Y` for yes and `Enter`.
+After the database configuration is filled in click the `Submit` button at the
+bottom of the screen. Upon successful database connection, you will be presented
+with the following screen:
 
-Now hit the `Run the install` button.
+![wp-run-install file](images/wp-run-install.png)
+
+Now hit the `Run the install` button.  After the install you will be 
+presented with the site configuration screen:
+
+![wp-site-configuration file](images/wp-site-configuration.png)
+
+The configuration screen will ask for a title for your Word Press site then
+a Word Press username and password.  For security purposes use a strong
+password to prevent intruders into your blog.  Click on the button labeled
+`Install WordPress` to finish the installation.  
+
+If everything installs correctly you will be presented with a reminder screen:
+
+![wp-success file](images/wp-success.png)
+
 
 #### Welcome screen
 
