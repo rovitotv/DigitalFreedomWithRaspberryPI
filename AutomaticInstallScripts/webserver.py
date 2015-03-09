@@ -116,7 +116,7 @@ def waitForWordPressInstallToComplete(data):
 	urlOfRaspberryPi = "http://" + data['ipAddressString']
 	message = "Now you must use a web browser to configure WordPress.  Using \n"
 	message += "a web browser on the same network as your Raspberry Pi, go \n"
-	message += "to the followig url: %s \n"
+	message += "to the followig url: %s \n" % (urlOfRaspberryPi)
 	message += "Now follow the instructions in the guide filling out the \n"
 	message += "correct database information.  \n"
 	print(message)
@@ -133,6 +133,7 @@ def waitForWordPressInstallToComplete(data):
 	message += "saving, you will be prompted to update your .htaccess file \n"
 	message += "which this script will do automatcially as soon as you press \n"
 	message += "yes."
+	print(message)
 
 	while 1 == 1:
 		wordPressComplete = raw_input('Are the permalink settings set? (y/n): ')
@@ -144,12 +145,29 @@ def installHtAccessFile(data):
 	f.write("<IfModule mod_rewrite.c>\n")
 	f.write("RewriteEngine On\n")
 	f.write("RewriteBase /\n")
-	f.write("RewriteRule ^index/\.php$ - [L]\n")
+	f.write("RewriteRule ^index\.php$ - [L]\n")
 	f.write("RewriteCond %{REQUEST_FILENAME} !-f\n")
 	f.write("RewriteCond %{REQUEST_FILENAME} !-d\n")
 	f.write("RewriteRule . /index.php [L]\n")
 	f.write("</IfModule>\n")
 	f.close()
+	com = "sudo a2enmod rewrite"
+	output = sp.check_output(com, shell=True)
+	print("%s" % output)
+
+def modifyApacheDefaltConfigurationFile(data):
+	'''
+		Changes the apache default configuration file.
+	'''
+	f = open("/etc/apache2/sites-available/default", "r")
+	lines = f.read()
+	splitLines = lines.split("\n")
+	splitLines[10] = "                AllowOverride All"
+	f.close()
+	f = open("/etc/apache2/sites-available/default", "w")
+	f.write(splitLines)
+	f.close()
+
 
 if __name__ == "__main__":
 	parser = argparse.ArgumentParser()
@@ -168,4 +186,5 @@ if __name__ == "__main__":
 	installWordPress(data)
 	waitForWordPressInstallToComplete(data)
 	installHtAccessFile(data)
+	modifyApacheDefaltConfigurationFile(data)
 	print("webserver automatic install complete")
