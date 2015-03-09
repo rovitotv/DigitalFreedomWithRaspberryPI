@@ -47,4 +47,5 @@ following license:
 Based on a work at https://github.com/rovitotv/DigitalFreedomWithRaspberryPI
 
 The source code located in the tests and AutomaticInstallScripts directories is
-licensed under the BSD 3-Clause License.
+licensed under the 
+[BSD 3-Clause License](http://opensource.org/licenses/BSD-3-Clause).
