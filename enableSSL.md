@@ -187,8 +187,7 @@ Allowoverride All
 
 # References
 
-- [Debian Mail Server with Postfix and Dovecot](https://scaron.info/technology/debian-mail-postfix-dovecot.html)
-- [Raspberry Pi Email Server](https://samhobbs.co.uk/raspberry-pi-email-server)
+- [SSL Certificate Signing with CACert for Raspberry Pi...](https://samhobbs.co.uk/2014/04/ssl-certificate-signing-cacert-raspberry-pi-ubuntu-debian?page=1)
 
 
 
