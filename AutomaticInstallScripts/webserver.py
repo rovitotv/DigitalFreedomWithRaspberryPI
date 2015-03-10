@@ -136,7 +136,7 @@ def waitForWordPressInstallToComplete(data):
 	print(message)
 
 	while 1 == 1:
-		wordPressComplete = raw_input('Are the permalink settings set? (y/n): ')
+		wordPressComplete = raw_input('Are the permalink settings set in WordPress? (y/n): ')
 		if wordPressComplete == 'y' or wordPressComplete == 'Y':
 			break
 

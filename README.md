@@ -11,6 +11,7 @@ Raspberry Pi.
 - [Setup](setup.md)
 - [Web Server](web.md)
 - [Email Server](email.md)
+- [Enable SSL](enableSSL.md)
 - [Maintenance](maintenance.md)
 
 ## Contributions
