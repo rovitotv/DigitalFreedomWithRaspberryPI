@@ -31,7 +31,7 @@ See our [contribution policy](contributing.md).
 I cannot thank the Raspberry Pi Foundation enough first for inventing then
 producing the Raspberry Pi computer but also offering excellent documentation.
 This guide is based on the style and format of the 
-[ Raspberry Pi Documentation ](https://github.com/raspberrypi/documentation)
+[ Raspberry Pi Documentation ](https://github.com/raspberrypi/documentation).
 
 ## License
 

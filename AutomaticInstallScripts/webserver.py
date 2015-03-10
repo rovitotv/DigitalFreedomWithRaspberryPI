@@ -169,6 +169,11 @@ def modifyApacheDefaltConfigurationFile(data):
 		f.write(splitLines[i] + '\n')
 	f.close()
 
+def restartApache(data):
+	print("restarting apache")
+	com = "service apache2 restart"
+	output = sp.check_output(com, shell=True)
+	print("%s" % output)
 
 if __name__ == "__main__":
 	parser = argparse.ArgumentParser()
@@ -188,4 +193,5 @@ if __name__ == "__main__":
 	waitForWordPressInstallToComplete(data)
 	installHtAccessFile(data)
 	modifyApacheDefaltConfigurationFile(data)
+	restartApache(data)
 	print("webserver automatic install complete")
