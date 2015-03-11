@@ -134,7 +134,8 @@ For the path again use the convention of your domain name, for example my
 CRT file is `rovitotv.crt`.  Recall the CRT file is the official signed 
 certificate file.
 
-** NOTE: the BEGIN CERTIFICATE and END CERTIFICATE lines are part of the certificate. **
+**NOTE: the BEGIN CERTIFICATE and END CERTIFICATE lines are part of the 
+certificate.**
 
 # Certificate file locations, permissions, and owernship
 
