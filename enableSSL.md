@@ -174,16 +174,78 @@ sudo chown root:root /etc/ssl/certs/rovitotv.crt
 sudo chmod 644 /etc/ssl/certs/rovitotv.crt
 ```
 
-# Configuration for Apache, Postfix, and Dovecot
+# Configuration for Apache and WordPress
 
+To get the Apache web server to use SSL is straight forward.  First use the
+following commands:
 
-TVR Note: add the following commands
+```bash
 sudo a2enmod ssl
 sudo a2ensite default-ssl
+```
 
-edit /etc/apache2/sites-available/default-ssl and change line 12
-Allowoverride All
+Then you have to edit the file `/etc/apache2/sites-available/default-ssl` and
+change line 12 to `AllowOverride All`.  Next restart apache with the 
+command:
 
+```bash
+sudo service apache2 restart
+```
+
+Then you want to add a parameter to the top of your default-ssl
+Apache configuration file that will stop Apache using SSL version 3.  SSL
+version 3 has a recently discovered vulnerability known as the 
+[POODLE attack](https://community.qualys.com/blogs/securitylabs/2014/10/15/ssl-3-is-dead-killed-by-the-poodle-attack).  To turn it off simply add the parameter 
+`SSLProtocol All -SSLv2 -SSLv3` to the file 
+`/etc/apache2/sites-available/default-ssl` after the
+`<VirtualHost _default_:443> tag.
+
+At this point you should be able to use your browser and go to 
+`https://www.yourdomain.com`.  Recall if you don't add the CACert to your
+browser and or operating system you will get an error.  It is possible to force
+all users to use https even if they initiate a http get request.  We recommend
+forcing all users over to SSL by default.  Google 
+[recently announced](http://googleonlinesecurity.blogspot.co.uk/2014/08/https-as-ranking-signal_6.html)
+that content on https will be given a higher ranking than content with http. 
+Forcing everybody to https is simple to do so we recommend it! Edit the default
+Apache config file `/etc/apache2/sites-available/default` to look like the
+example below:
+
+```bash
+<VirtualHost *:80>
+ServerName www.rovitotv.org
+<IfModule mod_rewrite.c>
+  <IfModule mod_ssl.c>
+    <Location />
+      RewriteEngine on
+      RewriteCond %{HTTPS} !^on$ [NC]
+      RewriteRule . https://%{HTTP_HOST}%{REQUEST_URI}  [L]
+    </Location>
+  </IfModule>
+</IfModule>
+</VirtualHost>
+```
+
+The configuration information above uses the Apache module rewrite to rewrite
+all incoming traffic to use https.  After the configuration file is changed
+restart Apache with the command:
+
+```bash
+sudo service apache2 reload
+```
+
+The WordPress configuration has to be modified slightly to use https, so in
+your browser go to the URL `https://www.YOURDOMAIN.org/wp-login.php` then
+enter your credintials. Next go to the left side and select `Settings->General`
+then change the WordPress Address (URL) and Site Address (URL) to include the
+https prefix.  For example my values are `https://www.rovitotv.org`.  After 
+those values are set hit the `Save Changes` button at the bottom of the screen.
+Next modify the file `/var/www/wp-config.php` to include the configuration line
+`define('FORCE_SSL_ADMIN', true);`.  This constant will force all logins and
+all admin sessions to happen over SSL.
+
+As a final check you should check the SSL capability of your web site by
+using [Qualys SSL Labs tools](https://www.ssllabs.com/ssltest/index.html).
 
 
 # References
