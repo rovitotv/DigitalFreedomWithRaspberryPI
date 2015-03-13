@@ -124,7 +124,7 @@ $ hostname --ip-address
 192.168.1.2
 ```
 
-The `$` signifies the prompt and the following line is the expected output, but
-remember to change your domain name as needed.
+The `$` signifies the prompt and the line after the prompt is the expected 
+output, but remember to change your domain name as needed.
 
 
