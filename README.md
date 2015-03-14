@@ -12,6 +12,7 @@ Raspberry Pi.
 - [Web Server](web.md)
 - [Email Server](email.md)
 - [Enable SSL](enableSSL.md)
+- [Social Media Integration](social_media_integration.md)
 - [Maintenance](maintenance.md)
 
 ## Contributions
