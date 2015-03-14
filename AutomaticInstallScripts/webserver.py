@@ -38,8 +38,8 @@ import argparse
 
 def getHostIPAddress(data):
 	output = sp.check_output("hostname -I", shell=True)
-	output = output[0:-2]
-	data['ipAddressString'] = output
+	outputSplit = output.split(" ")
+	data['ipAddressString'] = outputSplit[0]
 	
 def installApache():
 	print("Installing apache2")
