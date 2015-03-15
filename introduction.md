@@ -43,7 +43,7 @@ or computer.
 4. Complete control over your personal communication.  Your emails and blog will
 be stored on YOUR Raspberry Pi mini server, and nobody is scanning them to sell
 you advertisements.  
-5. Ability to customize your blog with themes or plugins and ability to control
+5. Ability to customize your blog with themes or plug-ins and ability to control
 your email with custom sorting and marking.  
 
 
@@ -52,3 +52,32 @@ your email with custom sorting and marking.
 This guide will refer you to other sources of documentation especially hardware
 and network setup.  As time permits I may add suggestions on hardware and
 network setup.
+
+## Prerequisites
+
+### The Command Line
+
+A guide like this requires extensive knowledge of the Linux command line.  The
+fact is Linux is based on Unix and Unix (therefore by extension Linux) needs to
+be operated from the command line.  The Linux command line is extremely powerful
+and if you have never used the command line before and you spend the time to
+learn it you will come to appreciate its power and simplicity.  Teaching readers
+the command line is beyond the scope of this guide but I will point you to an
+excellent free reference called  [The Linux Command
+Line](http://linuxcommand.org/tlcl.php).  I highly recommend `The Linux Command
+Line` but it is an in-depth book if you read chapters 1 - 10 that should cover
+most of the ground you need to understand to complete this guide.  The skills
+you learn in this guide and the book `The Linux Command Line` will serve you
+well in using a computer.
+
+
+### A Text Editor
+
+After the command line the next thing to master as a prerequisite to this book
+is a text editor.  A text editor is used to edit configuration files which are
+prevalent in Linux systems. The Raspberry Pi Operating System Raspbian includes
+nano which is a good editor to get started but any self respected Linux geek
+will use vi.  Some people might recommend emacs.  Both vi and emacs are 
+powerful editors that once again will serve you well not only for this guide
+but mastering computers.  `The Linux Command Line` book recommended above
+also includes a chapter on vi, see chapter 12.  
