@@ -28,9 +28,16 @@ name so I can keep a history just in case.  This file will be pretty small
 depending on how many posts on your blog you actually have.  Use scp (secure
 copy) to copy the file from the Raspberry Pi to a location for safe keeping.
 
-Media that you upload into Wordpress to use in your blog posts is stored in
-'/var/www/wp-content/uploads' by year and month.  To backup this directory 
-use the following command:
+Media that you upload into WordPress to use in your blog posts is stored in
+'/var/www/wp-content/uploads' by year and month.  We want to make a zip archive
+of all the files in this directory so first we have to install the zip
+utility by using the command:
+
+```bash
+sudo apt-get install zip
+```
+
+To backup the WordPress content directory use the following command:
 
 ```bash
 cd ~
