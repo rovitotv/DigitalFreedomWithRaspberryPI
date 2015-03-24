@@ -9,7 +9,12 @@ could become hacked and data loss will occur.
 A regular schedule for backing up your Raspberry Pi will insure that if 
 hardware failure or hacking occurs then your precious data can be recovered.  
 Based on my personal experience data needs to be in multiple locations because
-hardware failure in two computers at the same time is highly unlikely.
+hardware failure in two computers at the same time is highly unlikely. The
+Raspberry Pi uses a SD flash card which are volatile and will deteriorate over
+time.  Some people have setup the Raspberry Pi to boot off of a external
+hard disk or USB thumb drive to minimize wear and tear on the SD flash card,
+but I have found that setup complicated so my solution is to perform backups
+often.  
 
 ### Backup WordPress
 
@@ -47,6 +52,36 @@ zip -r 20150221WordPressContentUploads.zip /var/www/wp-content/uploads
 Same idea with the backup file name by using the year-month-day the backup
 files will automatically sort in almost any directory listing.  Now use scp
 to copy this zip file to a different computer for safe keeping.
+
+### Automatic Backups
+
+Included with this guide in the [script directory](https://github.com/rovitotv/DigitalFreedomWithRaspberryPI/blob/master/Scripts/backup.py) is
+a Python script that will automatically backup your WordPress database and 
+uploaded content called `backup.py` which has the following
+command line options:
+
+```bash
+usage: backup.py [-h] -b BACKUPDIRECTORY -p PASSWORDMYSQL
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -b BACKUPDIRECTORY, --backupDirectory BACKUPDIRECTORY
+                        path to backup dir
+  -p PASSWORDMYSQL, --passwordMySQL PASSWORDMYSQL
+                        MySQL password
+```
+
+The backup script is simple, feel free to have a look at the code.  It will
+create a directory with the current date and place all the backup files in 
+that directory.  The script follows a similar backup procedure as above and
+is called based on the following example:
+
+```bash
+sudo python backup.py -b /media/usbhd/backups -p PASSWORD
+```
+
+Of course you have to replace `PASSWORD` with your MySQL password.  Check the
+files in the backup directory to make sure the script is working properly.  
 
 ## Raspbian updates
 
