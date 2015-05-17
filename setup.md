@@ -184,20 +184,20 @@ This depicts your network configuration, the part you want is after eth0
 ```bash
 eth0      Link encap:Ethernet  HWaddr b8:27:eb:83:ce:6b  
           inet addr:192.168.1.92  Bcast:192.168.1.255  Mask:255.255.255.0
- ```
+```
 
- The three most important variables are
+The three most important variables are
 
- * inet addr: 192.168.1.92
- * Bcast: 192.168.1.255
- * Mask: 255.255.255.0
+* inet addr: 192.168.1.92
+* Bcast: 192.168.1.255
+* Mask: 255.255.255.0
 
- A gateway address which is usually the IP address of your router might also
- be required.  Finally edit the configuration file `/etc/network/interfaces`
- so it resembles the following:
+A gateway address which is usually the IP address of your router might also
+be required.  Finally edit the configuration file `/etc/network/interfaces`
+so it resembles the following:
 
- ```bash
- rovitotv@mail:/tmp$ cat /etc/network/interfaces
+```bash
+rovitotv@mail:/tmp$ cat /etc/network/interfaces
 auto lo
 
 iface lo inet loopback
