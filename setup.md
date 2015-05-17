@@ -13,7 +13,7 @@ between the two Raspberry Pi systems.  Experimentation is required to see what
 fits your needs best, I currently run both my email server and web server on
 a single Raspberry Pi 2 and it seems to handle the load.  In addition to the
 Raspberry Pi 2 I have a Netgear Wireless-G Router model WGR614.  The router
-lets me open/close internet ports and acts as a firewall for my network.  Most
+lets me open/close Internet ports and acts as a firewall for my network.  Most
 people already own a device similar to this
 
 ## Raspberry Pi Setup
@@ -126,5 +126,98 @@ $ hostname --ip-address
 
 The `$` signifies the prompt and the line after the prompt is the expected 
 output, but remember to change your domain name as needed.
+
+# Assign Static IP Address
+
+In some cases a static IP address is needed.  An IP address is like your house
+address and tells the host computer where to look for your Raspberry Pi on the
+network.  By default Raspbian is setup to receive a dynamic IP via dynamic host
+control protocol (DHCP) usually by your home router.  However this dynamic IP
+address can change whenever your remove the Raspberry Pi from the network or
+turn it off.  Having a static IP is not essential but it will make  repeated
+access to the Raspberry Pi via secure shell (SSH) much simpler since the
+Raspberry Pi will always have the same address.  The configuration changes
+have to be made to a file `/etc/network/interfaces`.  By default 
+`/etc/network/interfaces` looks like the following:
+
+```bash
+auto lo
+
+iface lo inet loopback
+iface eth0 inet dhcp
+
+allow-hotplug wlan0
+iface wlan0 inet manual
+wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
+iface default inet dhcp
+```
+
+The line `iface eht0 inet dhcp` implies that the system is currently configured
+to receive an IP address with DHCP.  Before we change the network interface
+configuration file one must have a good understanding of the network the
+Raspberry Pi is using.  Use the command `ifconfig` to see the current 
+network configuration supplied by DHCP.  The output should look like the 
+following:
+
+```bash
+rovitotv@mail:~$ ifconfig
+eth0      Link encap:Ethernet  HWaddr b8:27:eb:83:ce:6b  
+          inet addr:192.168.1.92  Bcast:192.168.1.255  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:887 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:888 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:87514 (85.4 KiB)  TX bytes:121447 (118.6 KiB)
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:194 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:194 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:15751 (15.3 KiB)  TX bytes:15751 (15.3 KiB)
+
+```
+
+This depicts your network configuration, the part you want is after eth0
+
+```bash
+eth0      Link encap:Ethernet  HWaddr b8:27:eb:83:ce:6b  
+          inet addr:192.168.1.92  Bcast:192.168.1.255  Mask:255.255.255.0
+ ```
+
+ The three most important variables are
+
+ * inet addr: 192.168.1.92
+ * Bcast: 192.168.1.255
+ * Mask: 255.255.255.0
+
+ A gateway address which is usually the IP address of your router might also
+ be required.  Finally edit the configuration file `/etc/network/interfaces`
+ so it resembles the following:
+
+ ```bash
+ rovitotv@mail:/tmp$ cat /etc/network/interfaces
+auto lo
+
+iface lo inet loopback
+iface eth0 inet static
+address 192.168.1.9
+netmask 255.255.255.0
+network 192.168.1.0
+broadcast 192.168.1.255
+
+allow-hotplug wlan0
+iface wlan0 inet manual
+wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
+iface default inet dhcp
+```
+
+Next reboot the Raspberry Pi and the IP address will be statically assigned
+to 192.168.1.9.  
+
+
+
+
 
 
