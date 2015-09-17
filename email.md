@@ -473,6 +473,40 @@ will be created at `/var/log/spamassassin.log`.  Each day make sure you move
 email that you consider spam into your spam folder.  Occasionally look through
 your spam folder and move emails back to inbox that you think are ham.  
 
+## Install Pyzor a hash sharing system
+
+Pyzor is a hash sharing database which is one of the many approaches to
+identify spam.  Many people can look at their email and if they identify spam
+its signature or hash is reported back to a centralized database.  If the 
+online database reports back a match it will raise the spam score for that
+message.
+
+To install Pyzor use the command below:
+
+```bash
+sudo apt-get install pyzor
+```
+
+Then edit /etc/spamassassin/local.cf and at the bottom before the last line add
+the following:
+
+```bash
+pyzor_options --homedir /etc/spamassassin
+```
+
+Next you have to download information about the globally shared hash databases.
+By using the command:
+
+```bash
+sudo pyzor --homedir /etc/spamassassin discover
+```
+
+Then finally restart spamd with the command
+
+```bash
+sudo /etc/init.d/spamassassin restart
+```
+
 
 # LMTP & Sieve mailbox sorting
 
