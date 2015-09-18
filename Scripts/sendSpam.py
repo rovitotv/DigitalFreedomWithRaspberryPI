@@ -46,11 +46,11 @@ msg = MIMEText(sendStr)
 msg['Subject'] = 'Spam trigger for sure'
 # me == the sender's email address
 # you == the recipient's email address
-me = 'spamkind@randomdomain.com'
+me = 'spamking@randomdomain.com'
 you = 'rovitotv@rovitotv.org'
 msg['From'] = you
 msg['To'] = me
 
-s = smtplib.SMTP('192.168.1.26')
+s = smtplib.SMTP('192.168.1.9')
 s.sendmail(me, [you], msg.as_string())
 s.quit()

@@ -487,7 +487,7 @@ To install Pyzor use the command below:
 sudo apt-get install pyzor
 ```
 
-Then edit /etc/spamassassin/local.cf and at the bottom before the last line add
+Then edit /etc/spamassassin/local.cf and at the bottom after the last line add
 the following:
 
 ```bash
@@ -499,6 +499,7 @@ By using the command:
 
 ```bash
 sudo pyzor --homedir /etc/spamassassin discover
+sudo chmod a+r /etc/spamassassin/servers
 ```
 
 Then finally restart spamd with the command
@@ -506,6 +507,19 @@ Then finally restart spamd with the command
 ```bash
 sudo /etc/init.d/spamassassin restart
 ```
+
+## Test Pyzor
+
+It is simple to test Pyzor by running Spam Assassin in debug mode like the
+following example:
+
+```bash
+spamassassin -t -D < FileThatIsSpam
+```
+
+Where FileThatIsSpam is a email from ~/Maildir/.Spam/cur.  This command will
+print several informational messages then at the end provide a nice summary
+of the spam points assigned to 'FileThatIsSpam'.
 
 
 # LMTP & Sieve mailbox sorting
@@ -683,7 +697,7 @@ python sendSpam.py
 ```
 
 This script will generate a email then attempt to send with the SMTP server
-of `192.168.1.26`, take note you should change the ip address to that of your
+of `192.168.1.9`, take note you should change the ip address to that of your
 Raspberry Pi.  The email generated will automatically be generated as spam
 and SpamAssassin should file in your spam folder.  Check the email log 
 `/var/log/mail.log` after the script runs.
