@@ -517,9 +517,9 @@ following example:
 spamassassin -t -D < FileThatIsSpam
 ```
 
-Where FileThatIsSpam is a email from ~/Maildir/.Spam/cur.  This command will
+Where `FileThatIsSpam` is a email from ~/Maildir/.Spam/cur.  This command will
 print several informational messages then at the end provide a nice summary
-of the spam points assigned to 'FileThatIsSpam'.
+of the spam points assigned to `FileThatIsSpam`.
 
 
 # LMTP & Sieve mailbox sorting
