@@ -2,17 +2,17 @@
 
 This is a guide on how to obtain digital freedom with the Raspberry Pi by using
 inexpensive hardware and free software to take back control of your digital
-life.  Learn how to install and maintain a web server on the Raspberry Pi. In 
-order to keep this guide simple we don't recommend trying the chapters on
-email or enabling SSL.  The email chapter is too complex but will remain with
-the project for the moment until we can find a easier answer.  Email on Unix
-based systems is flexible but too complex which makes this chapter difficult
-to read.  The SSL chapter is not that difficult to apply but the Electronic
-Frontier Foundation and the Linux Foundation are working on a new project called
-[Let's Encrypt](https://letsencrypt.org) which will change this chapter
-drastically. Finally we are moving over the web server section to use Pelican
-a static html generator which will make the system more secure and easier
-to setup.
+life.  Learn how to install and maintain a web server on the Raspberry Pi. In
+order to keep this guide simple we don't recommend trying the chapters on email
+or enabling SSL.  The email chapter is too complex but will remain with the
+project for the moment until we can find a easier answer.  Email on Unix based
+systems is flexible but too complex which makes this chapter difficult to read.
+The SSL chapter is not that difficult to apply but the Electronic Frontier
+Foundation and the Linux Foundation are working on a new project called [Let's
+Encrypt](https://letsencrypt.org) which will change this chapter drastically.
+Finally we are moving over the web server section to use
+[Pelican](http://blog.getpelican.com) a static html generator which will make
+the system more secure and easier to setup.
 
 ## Contents
 
