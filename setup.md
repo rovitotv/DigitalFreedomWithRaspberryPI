@@ -25,7 +25,7 @@ be removed.
 ## The Raspbian Operating System
 
 This book uses Raspbian operating system which is the "official" operating
-system for the Raspberry PI.  It is based on Debian Linux "Wheezy" and includes
+system for the Raspberry PI.  It is based on Debian Linux "Jessie" and includes
 many packages that will make digital freedom easily obtainable. Raspbian uses
 Debian because it offers a strong foundation on which to build a Linux
 distribution.  Debian (and by inheritance Raspbian) provide a large number of

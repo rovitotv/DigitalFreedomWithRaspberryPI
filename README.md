@@ -10,7 +10,9 @@ based systems is flexible but too complex which makes this chapter difficult
 to read.  The SSL chapter is not that difficult to apply but the Electronic
 Frontier Foundation and the Linux Foundation are working on a new project called
 [Let's Encrypt](https://letsencrypt.org) which will change this chapter
-drastically.  
+drastically. Finally we are moving over the web server section to use Pelican
+a static html generator which will make the system more secure and easier
+to setup.
 
 ## Contents
 
