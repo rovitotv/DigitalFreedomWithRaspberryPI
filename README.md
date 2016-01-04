@@ -20,8 +20,8 @@ drastically.
 - [Social Media Integration](social_media_integration.md)
 - [Maintenance](maintenance.md)
 - Archive
--- [Enable SSL](enableSSL.md)
--- [Email Server](email.md)
+  - [Enable SSL](enableSSL.md)
+  - [Email Server](email.md)
 
 ## Contributions
 
