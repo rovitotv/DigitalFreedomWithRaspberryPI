@@ -12,7 +12,7 @@ Foundation and the Linux Foundation are working on a new project called [Let's
 Encrypt](https://letsencrypt.org) which will change this chapter drastically.
 Finally we are moving over the web server section to use
 [Pelican](http://blog.getpelican.com) a static html generator which will make
-the system more secure and easier to setup.
+the system more secure, easier to setup, and faster.
 
 ## Contents
 
